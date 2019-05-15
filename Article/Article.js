@@ -34,3 +34,44 @@ const articles = document.querySelectorAll('.article');
 articles.forEach((article) => {
   new Article(article);
 });
+
+// Articles to add
+
+const newArticles = [{
+    heading: 'Super Nice Article',
+    date: 'Nov 5th, 2019',
+    paragraphs: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \r Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.    ',
+  },
+  {
+    heading: 'You won\'t want to read this',
+    date: 'Nov 5th, 2019',
+    paragraphs: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
+  },
+  {
+    heading: 'This is Boring Stuff',
+    date: 'Nov 36th, 2019',
+    paragraphs: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
+  },
+];
+
+// Generate the articles from our object
+
+class ArticleGenerator {
+  constructor(article, data) {
+    this.article = article;
+    this.data = data;
+
+    this.createHeading();
+    this.createDate();
+    this.createParagraphs();
+  } 
+
+  createHeading() {
+    const heading = document.createElement('h2');
+    heading.textContent = this.data.heading;
+    this.article.append(heading);
+  }
+
+}
