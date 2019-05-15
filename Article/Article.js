@@ -29,11 +29,16 @@ class Article {
 
 */
 
-const articles = document.querySelectorAll('.article');
-
+let articles = document.querySelectorAll('.article');
 articles.forEach((article) => {
-  new Article(article);
+  return new Article(article);
 });
+
+
+/* let articles = document.querySelectorAll('.article');
+articles.forEach(article => {
+  return new Article(article);
+}); */
 
 // Articles to add
 
@@ -74,4 +79,20 @@ class ArticleGenerator {
     this.article.append(heading);
   }
 
+  createDate() {
+    const date = document.createElement('p');
+    date.textContent = this.data.date;
+    this.article.append(date);
+  }
+
+  createParagraphs() {
+    const paragraphs = document.createElement('p');
+    paragraphs.textContent = this.data.paragraphs;
+    this.article.append(paragraphs);
+  }
 }
+
+articles.forEach((article, idx) => {
+  new ArticleGenerator(article, newArticles[idx]);
+  /* new Article(article); */
+})
