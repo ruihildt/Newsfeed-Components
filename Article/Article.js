@@ -31,14 +31,8 @@ class Article {
 
 let articles = document.querySelectorAll('.article');
 articles.forEach((article) => {
-  return new Article(article);
+  new Article(article);
 });
-
-
-/* let articles = document.querySelectorAll('.article');
-articles.forEach(article => {
-  return new Article(article);
-}); */
 
 // Articles to add
 
